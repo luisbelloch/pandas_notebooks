@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eoi pipefail
+set -eou pipefail
 readonly COMMIT=`git log --pretty=format:'%h' -n 1`
 readonly PKG=material-clase-$COMMIT.tar
 git archive --format=tar HEAD -o $PKG .
