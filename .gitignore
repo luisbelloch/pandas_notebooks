@@ -4,4 +4,5 @@ live/
 .DS_Store
 *.tar.gz
 2016/
-scratch.ipynb
+scratch*.ipynb
+__pycache__/
