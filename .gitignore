@@ -1,8 +1,7 @@
-.ipynb_checkpoints/
-cache.sqlite
-live/
-.DS_Store
-*.tar.gz
-2016/
-scratch*.ipynb
 __pycache__/
+.DS_Store
+.ipynb_checkpoints/
+2016/
+build/
+live/
+scratch*.ipynb
