@@ -5,7 +5,3 @@ out/
 live/
 scratch*.ipynb
 .direnv/
-.config/
-.jupyter/
-.local/
-.npm/

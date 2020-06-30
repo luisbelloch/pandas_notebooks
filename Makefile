@@ -1,5 +1,4 @@
-# release, data, live
-OUT=build
+OUT=out
 COMMIT_ID=$(shell git log --pretty=format:'%h' -n 1)
 NOW=$(shell date +%Y-%m-%dT%H:%M:%S%z)
 PKG_NOTEBOOKS:=$(OUT)/notebooks-$(COMMIT_ID).tar.gz
@@ -27,3 +26,12 @@ $(PKG_NOTEBOOKS): $(OUT)
 $(PKG_DATA): $(OUT)
 	tar --exclude='./data/.ipynb_checkpoints' -zcvf $(PKG_DATA) data/
 	shasum $(PKG_DATA) > $(PKG_DATA).sha1
+
+requirements.txt:
+	pip install --upgrade pip
+	pip install jupyterlab pandas seaborn scikit-learn "dask[complete]" mimesis pyarrow
+	pip freeze > requirements.txt
+
+.PHONY: up
+up:
+	docker run -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v $(PWD):/home/jovyan/bigdataupv -ti jupyter/scipy-notebook
