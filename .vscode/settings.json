@@ -1,5 +1,5 @@
 {
   "python.linting.enabled": false,
   "editor.formatOnSave": true,
-  "python.pythonPath": ".direnv/python-3.7.3/bin/python3.7"
+  "python.pythonPath": ".direnv/python-3.7.7/bin/python"
 }
