@@ -28,7 +28,7 @@ $(PKG_DATA): $(OUT)
 	shasum $(PKG_DATA) > $(PKG_DATA).sha1
 
 requirements.txt:
-	pip install --upgrade pip
+	pip install --upgrade pip wheel
 	pip install jupyterlab pandas seaborn scikit-learn "dask[complete]" mimesis pyarrow
 	pip freeze > requirements.txt
 
