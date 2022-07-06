@@ -4,6 +4,7 @@ NOW=$(shell date +%Y-%m-%dT%H:%M:%S%z)
 PKG_NOTEBOOKS:=$(OUT)/notebooks-$(COMMIT_ID).tar.gz
 PKG_DATA:=$(OUT)/data-$(COMMIT_ID).tgz
 VERSION_FILE:=$(OUT)/version.txt
+DOCKER_IMAGE_NAME:=luisbelloch/pandas_notebooks
 
 .PHONY: all
 all: clean $(PKG_DATA) $(PKG_NOTEBOOKS) $(VERSION_FILE)
@@ -32,6 +33,10 @@ requirements.txt:
 	pip install jupyterlab pandas seaborn scikit-learn "dask[complete]" mimesis pyarrow pandas_datareader numba
 	pip freeze > requirements.txt
 
+.PHONY: build
+build: requirements.txt
+	docker build -t $(DOCKER_IMAGE_NAME) .
+
 .PHONY: up
-up:
-	docker run -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v $(PWD):/home/jovyan/bigdataupv -ti jupyter/scipy-notebook
+up: build
+	docker run -p 8888:8888 -v $(PWD):/home/jovyan/bigdataupv -ti $(DOCKER_IMAGE_NAME)
