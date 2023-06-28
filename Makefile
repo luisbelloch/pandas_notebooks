@@ -30,7 +30,7 @@ $(PKG_DATA): $(OUT)
 
 requirements.txt:
 	pip install --upgrade pip wheel
-	pip install jupyterlab pandas seaborn scikit-learn "dask[complete]" mimesis pyarrow pandas_datareader numba
+	pip install jupyterlab pandas seaborn scikit-learn "dask[complete]" mimesis pyarrow pandas_datareader numba pyspark ipywidgets jupyter-dash
 	pip freeze > requirements.txt
 
 .PHONY: build

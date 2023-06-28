@@ -1,4 +1,4 @@
-# Pandas Notebooks
+# Time-Series Analysis using Pandas
 
 This repository contains the materials for a course on time series analysis using [Pandas](https://pandas.pydata.org) library.
 
@@ -6,7 +6,7 @@ This repository contains the materials for a course on time series analysis usin
 - [Plotting](02_plotting.ipynb)
 - [Asset and Portfolio Returns](03_returns.ipynb)
 - [Volatility](04_volatility.ipynb)
-- [Moving Averages](05_moving_averages.ipynb)
+- [Moving Averages (SMA, EMA, MACD)](05_moving_averages.ipynb)
 - [Value at Risk (VaR)](06_value_at_risk.ipynb)
 - [Forecasting - ARIMA](07_forecasting_arima.ipynb)
 - [Forecasting - Facebook's Prophet](08_forecasting_fbprophet.ipynb)
